@@ -1,0 +1,70 @@
+let switchOn = false; // Initial state of the switch
+let switchX = 300, switchY = 200, switchSize = 50; // Switch position and size
+let currentPosition = 0; // Position of the current animation
+let currentSpeed = 2; // Speed of the current animation
+let tubeHeight = 20; // Height of the tubes
+let zigzagAmplitude = 20; // Amplitude of the zigzag motion
+let direction = 1; // Direction of the zigzag movement
+
+function setup() {
+    createCanvas(600, 400).parent('sketch-holder'); // Attach canvas to the sketch-holder div
+    noStroke();
+}
+
+function draw() {
+    background(255); // White background
+
+    // Draw the tubes (wire)
+    fill(200); // Light gray for tubes
+    rect(50, 190, 500, tubeHeight); // Top tube
+    rect(50, 210, 500, tubeHeight); // Bottom tube
+
+    // Draw the switch
+    fill(switchOn ? "green" : "red"); // Green when On, red when Off
+    rect(switchX - switchSize / 2, switchY - switchSize / 2, switchSize, switchSize, 5); // Rounded switch
+
+    // Draw "On" or "Off" text inside the switch
+    fill(255); // White text
+    textAlign(CENTER, CENTER);
+    textSize(18);
+    text(switchOn ? "On" : "Off", switchX, switchY);
+
+    // Draw current animation if the switch is On
+    if (switchOn) {
+        fill("blue"); // Blue color for current
+        let currentX = map(currentPosition, 0, width - 100, 50, 550); // Map position to tube coordinates
+
+        // Calculate zigzag Y position
+        let currentY = 200 + zigzagAmplitude * direction; // Zigzag effect
+
+        // Draw current as a small circle within the tubes
+        ellipse(currentX, currentY, 10, 10); // Draw current as a small circle
+
+        // Update current position for animation
+        currentPosition += currentSpeed;
+
+        // Change direction at tube boundaries
+        if (currentX > width - 100) {
+            currentPosition = 0; // Reset position for continuous animation
+        }
+
+        // Change direction for zigzag motion
+        if (currentX % 100 < 50) {
+            direction = 1; // Move down
+        } else {
+            direction = -1; // Move up
+        }
+    }
+}
+
+// Toggle switch state on mouse click
+function mousePressed() {
+    if (
+        mouseX > switchX - switchSize / 2 &&
+        mouseX < switchX + switchSize / 2 &&
+        mouseY > switchY - switchSize / 2 &&
+        mouseY < switchY + switchSize / 2
+    ) {
+        switchOn = !switchOn; // Toggle switch state
+    }
+}
