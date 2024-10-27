@@ -10,25 +10,15 @@
 <body>
 
     <div class="container">
-      <main id="content">
-        <h1>Lesson Overview</h1>
-        <p>Welcome to the lessons on electricity and circuits. Select a lesson from the sidebar to begin.</p>
-      </main>
         <!-- Sidebar menu -->
-        <nav id="lesson-menu"></nav> <!-- Sidebar content from side_menu.html -->
+        <nav id="lesson-menu"></nav> <!-- Sidebar content loaded here -->
 
         <!-- Main content area -->
-        
+        <main id="content">
+            <h1>Lesson Overview</h1>
+            <p>Welcome to the lessons on electricity and circuits. Select a lesson from the sidebar to begin.</p>
+        </main>
     </div>
 
-    <!-- JavaScript to load sidebar content from side_menu.html -->
-    <script>
-        fetch("side_menu.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("lesson-menu").innerHTML = data;
-            })
-            .catch(error => console.error('Error loading sidebar:', error));
-    </script>
 </body>
 </html>

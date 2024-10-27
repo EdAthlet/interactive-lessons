@@ -21,15 +21,6 @@
         </main>
     </div>
 
-    <!-- JavaScript to load sidebar content from side_menu.html -->
-    <script>
-        fetch("side_menu.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("lesson-menu").innerHTML = data;
-            })
-            .catch(error => console.error('Error loading sidebar:', error));
-    </script>
-
+    
 </body>
 </html>
