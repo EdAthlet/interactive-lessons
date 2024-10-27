@@ -10,7 +10,17 @@
 </head>
 <body>
 
-    <div id="lesson-menu"></div>
+    <div class="container">
+        <!-- Sidebar menu -->
+        <nav id="lesson-menu"></nav> <!-- Sidebar content loaded here -->
+
+        <!-- Main content area for the p5.js sketch -->
+        <main id="content">
+            <div id="sketch-holder"></div> <!-- This is where the p5.js sketch will be rendered -->
+        </main>
+    </div>
+
+    <!-- JavaScript to load sidebar content from side_menu.html -->
     <script>
         fetch("side_menu.html")
             .then(response => response.text())
@@ -19,8 +29,6 @@
             })
             .catch(error => console.error('Error loading sidebar:', error));
     </script>
-    
-    <div id="sketch-holder"></div> <!-- This is where the p5.js sketch will be rendered -->
 
 </body>
 </html>
