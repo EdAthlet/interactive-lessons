@@ -1,28 +1,40 @@
-/* Example menu styling */
-nav#lesson-menu {
-    background-color: #f8f8f8;
-    padding: 10px;
-    border: 1px solid #ddd;
+/* Container for sidebar and main content */
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
 }
 
-nav#lesson-menu ul {
+/* Sidebar styling */
+#sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar link styling */
+#sidebar ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-nav#lesson-menu li {
-    margin: 5px 0;
-}
-
-nav#lesson-menu a {
-    text-decoration: none;
-    color: #333;
-    padding: 8px 16px;
+#sidebar a {
     display: block;
-    border-radius: 4px;
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav#lesson-menu a:hover {
+#sidebar a:hover {
     background-color: #ddd;
+}
+
+/* Main content styling */
+#content {
+    flex: 1; /* Take up remaining space next to the sidebar */
+    padding: 20px;
 }

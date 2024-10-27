@@ -1,79 +1,32 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Lessons</title>
-  <link rel="stylesheet" href="css/menu.css">
-
-  <style>
-    /* Basic styling for the layout */
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      margin: 0;
-    }
-
-    /* Header styling */
-    header {
-      background-color: #333;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 24px;
-    }
-
-    /* Container for sidebar and content */
-    .container {
-      display: flex;
-      height: 100vh;
-    }
-
-    
-
-
-    /* Main content area */
-    #content {
-      flex-grow: 1;
-      padding: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index: Lessons</title>
+    <link rel="stylesheet" href="css/menu.css"> <!-- Link to shared menu CSS -->
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    Interactive Lessons
-  </header>
+    <div class="container">
+        <!-- Sidebar menu -->
+        <nav id="side-menu"></nav> <!-- Sidebar will be populated by side_menu.html -->
 
-
-  <!-- Sidebar and Content Container -->
-  <div class="container">
-    
-    <!-- Sidebar with Lesson Links -->
-    <div id="sidebar">
-      <h2>Lessons</h2>
-      <a href="lesson1.html">Lesson 1: Current in Wire</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-      <a href="lesson2.html">Lesson 2: Button letter A</a>
-
-      <!-- Add more lessons here -->
+        <!-- Main content area -->
+        <main id="content">
+            <h1>Lesson Overview</h1>
+            <p>Welcome to the lessons on electricity and circuits. Select a lesson from the sidebar to begin.</p>
+        </main>
     </div>
-    
-    <!-- Main Content Area -->
-    <div id="content">
-      <h1>Welcome to Interactive Lessons</h1>
-      <p>Select a lesson from the menu to get started.</p>
-    </div>
-  </div>
 
+    <!-- JavaScript to load sidebar content from side_menu.html -->
+    <script>
+        fetch("side_menu.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("side-menu").innerHTML = data;
+            });
+    </script>
 </body>
 </html>
