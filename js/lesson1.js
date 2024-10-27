@@ -1,19 +1,14 @@
-function setup() {
-    createCanvas(400, 400);
-  }
-  
-  function draw() {
-    background(220);
-  }
   let switchOn = false; // Initial state of the switch
   let switchX = 300, switchY = 200, switchSize = 50; // Switch position and size
   let currentPosition = 0; // Position of the current animation
   let currentSpeed = 2; // Speed of the current animation
   
   function setup() {
-    createCanvas(600, 400);
+    let canvas = createCanvas(600, 400);
+    canvas.parent("sketch-holder"); // Attach to div
     noStroke();
   }
+  
   
   function draw() {
     background(255); // White background
