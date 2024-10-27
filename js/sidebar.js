@@ -23,3 +23,6 @@ function setActiveLink() {
         }
     });
 }
+
+// Call setActiveLink when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", setActiveLink);
