@@ -15,10 +15,11 @@
         fetch("side_menu.html")
             .then(response => response.text())
             .then(data => {
-                document.getElementById("side-menu").innerHTML = data;
-            });
+                document.getElementById("lesson-menu").innerHTML = data;
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
     </script>
-    <h1>Lesson 1: Current In Wire</h1>
+    
     <div id="sketch-holder"></div> <!-- This is where the p5.js sketch will be rendered -->
 
 </body>

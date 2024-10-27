@@ -1,17 +1,16 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index: Lessons</title>
-    <link rel="stylesheet" href="css/menu.css"> <!-- Link to shared menu CSS -->
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
 
     <div class="container">
         <!-- Sidebar menu -->
-        <nav id="lesson-menu"></nav> <!-- Sidebar will be populated by side_menu.html -->
+        <nav id="lesson-menu"></nav> <!-- Sidebar content from side_menu.html -->
 
         <!-- Main content area -->
         <main id="content">
@@ -25,8 +24,9 @@
         fetch("side_menu.html")
             .then(response => response.text())
             .then(data => {
-                document.getElementById("side-menu").innerHTML = data;
-            });
+                document.getElementById("lesson-menu").innerHTML = data;
+            })
+            .catch(error => console.error('Error loading sidebar:', error));
     </script>
 </body>
 </html>
