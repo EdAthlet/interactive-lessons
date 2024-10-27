@@ -36,6 +36,11 @@
     background-color: #45a049; /* Darker green for hover effect */
 }
 
+#lesson-menu a.active-link {
+    background-color: yellow; /* Highlight active link in yellow */
+    color: black; /* Optional: Set text color for contrast */
+}
+
 /* Main content styling */
 #content {
     margin-left: 250px; /* Offset main content by the sidebar width */
