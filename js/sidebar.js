@@ -1,11 +1,13 @@
 // sidebar.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("side_menu.html")
+    // Add a timestamp to the URL to prevent caching
+    const cacheBuster = new Date().getTime();
+    fetch(`side_menu.html?cacheBust=${cacheBuster}`)
         .then(response => response.text())
         .then(data => {
             document.getElementById("lesson-menu").innerHTML = data;
-            setActiveLink(); // Call after sidebar loads
+            setActiveLink(); // Call after sidebar content loads
         })
         .catch(error => console.error('Error loading sidebar:', error));
 });
@@ -23,6 +25,3 @@ function setActiveLink() {
         }
     });
 }
-
-// Call setActiveLink when the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", setActiveLink);
