@@ -2,12 +2,13 @@
 .container {
     display: flex;
     height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevents content overflow */
 }
 
 /* Sidebar styling */
 #lesson-menu {
     width: 200px;
-    background-color: #4CAF50; /* Green background color */
+    background-color: #e3ece3; /* Green background color */
     padding-top: 20px;
     border-right: 1px solid #ddd;
     display: flex;
@@ -16,12 +17,9 @@
 
 /* Sidebar link styling */
 #lesson-menu ul {
-    width: 200px;
-    background-color: #4CAF50; /* Green background color */
-    padding-top: 20px;
-    border-right: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 #lesson-menu a {
@@ -40,4 +38,6 @@
 #content {
     flex: 1; /* Take up remaining space next to the sidebar */
     padding: 20px;
+    overflow-y: auto; /* Ensures content scrolls within main area if needed */
+    margin-left: 0; /* Ensures no overlay with sidebar */
 }
