@@ -1,8 +1,6 @@
 // sidebar.js
 
-// Load sidebar content and set active link
 document.addEventListener("DOMContentLoaded", () => {
-    // Load sidebar content from side_menu.html
     fetch("side_menu.html")
         .then(response => response.text())
         .then(data => {
@@ -22,9 +20,9 @@ function setActiveLink() {
     // Remove active class from all links
     links.forEach(link => link.classList.remove("active-link"));
 
-    // Find the link that matches the current URL and add active class
+    // Find the link that partially matches the current URL and add active class
     links.forEach(link => {
-        if (link.href === window.location.href) {
+        if (window.location.href.includes(link.href)) {
             link.classList.add("active-link");
         }
     });
