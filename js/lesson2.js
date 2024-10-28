@@ -15,8 +15,8 @@ function setup() {
 
   // Create the button labeled "A" and center it at the bottom of the canvas
   button = createButton('A');
-  button.size(30, 30); // Small button
-  button.position(sidebarWidth + margin + width / 2 - button.width / 2, height + 50 - button.height); // Center button on the canvas
+  button.size(50, 50); // Small button
+  button.position(sidebarWidth + margin + width / 2 - button.width / 2, 50 + height - button.height - 20); // Center button on the canvas
   button.mousePressed(createClone);
 }
 
@@ -39,7 +39,7 @@ function draw() {
   // Move the clone if it exists and is in motion
   if (cloneMoving && buttonClone) {
     let targetX = sidebarWidth + margin + width / 2 - buttonClone.width / 2;
-    let targetY = height / 2 - buttonClone.height / 2;
+    let targetY = 50 + height / 2 - buttonClone.height / 2;
 
     // Move the clone towards the center of the TV
     cloneX = lerp(cloneX, targetX, 0.05);
@@ -60,12 +60,12 @@ function createClone() {
   // Create the clone button if it doesn't already exist
   if (!buttonClone) {
     buttonClone = createButton('A');
-    buttonClone.size(30, 30);
+    buttonClone.size(50, 50);
   }
 
-  // Set the clone's initial position and start moving it
-  cloneX = 270 + width / 2 - buttonClone.width / 2;
-  cloneY = height + 50 - button.height;
+  // Set the clone's initial position at the bottom center of the canvas and start moving it
+  cloneX = 250 + margin + width / 2 - buttonClone.width / 2;
+  cloneY = 50 + height - button.height - 20; // Adjusted to be just above the bottom of the canvas
   buttonClone.position(cloneX, cloneY);
   cloneMoving = true;
 }
