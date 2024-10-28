@@ -3,8 +3,8 @@ let buttonClone;
 let isPressed = false;
 let cloneMoving = false;
 let cloneX, cloneY;
-let sidebarWidth = 250; // Moved outside to make it global
-let margin = 20; // Optional: move margin as well if needed in other functions
+let sidebarWidth = 250; // Global declaration
+let margin = 20;
 
 function setup() {
   // Create the canvas and position it with margin
@@ -58,6 +58,7 @@ function createClone() {
   if (!buttonClone) {
     buttonClone = createButton('A');
     buttonClone.size(30, 30);
+    document.body.appendChild(buttonClone.elt); // Attach the clone to the DOM
   }
 
   // Set the clone's initial position at the bottom center of the canvas
