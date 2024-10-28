@@ -10,7 +10,7 @@ function setup() {
 
   // Create the canvas and position it with margin
   const canvas = createCanvas(500, 400);
-  canvas.position(sidebarWidth + margin, 50); 
+  canvas.position(sidebarWidth + margin, 50);
 
   // Create the main button labeled "A" and center it at the bottom of the canvas
   button = createButton('A');
@@ -40,12 +40,12 @@ function draw() {
     let targetX = sidebarWidth + margin + width / 2 - buttonClone.width / 2;
     let targetY = 50 + height / 2 - buttonClone.height / 2;
 
-    // Move the clone towards the center of the TV
-    cloneX = lerp(cloneX, targetX, 0.05);
-    cloneY = lerp(cloneY, targetY, 0.05);
+    // Smoothly move the clone towards the center of the TV
+    cloneX = lerp(cloneX, targetX, 0.1);
+    cloneY = lerp(cloneY, targetY, 0.1);
     buttonClone.position(cloneX, cloneY);
 
-    // Stop moving if close enough to the target
+    // Stop moving if the clone is close enough to the target position
     if (dist(cloneX, cloneY, targetX, targetY) < 1) {
       cloneMoving = false;
     }
@@ -59,11 +59,12 @@ function createClone() {
   if (!buttonClone) {
     buttonClone = createButton('A');
     buttonClone.size(30, 30);
+    document.body.appendChild(buttonClone.elt); // Append it to the DOM if it’s created for the first time
   }
 
   // Set the clone's initial position at the bottom center of the canvas
-  cloneX = 250 + 20 + width / 2 - buttonClone.width / 2;
-  cloneY = 50 + height - button.height - 20;
+  cloneX = button.position().x;
+  cloneY = button.position().y;
   buttonClone.position(cloneX, cloneY);
 
   // Start moving the clone
