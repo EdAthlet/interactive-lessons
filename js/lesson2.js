@@ -7,7 +7,7 @@ let cloneX, cloneY;
 function setup() {
   // Create the canvas and shift it 250px to the right to make room for the sidebar
   const canvas = createCanvas(500, 400);
-  canvas.position(250, 0); // Canvas positioned with 250px offset from the left
+  canvas.position(400, 50); // Canvas positioned with 250px offset from the left
 
   // Create the button labeled "A" and position it relative to the canvas
   button = createButton('A');
