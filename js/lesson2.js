@@ -5,14 +5,18 @@ let cloneMoving = false;
 let cloneX, cloneY;
 
 function setup() {
-  // Create the canvas and shift it 250px to the right to make room for the sidebar
-  const canvas = createCanvas(500, 400);
-  canvas.position(400, 50); // Canvas positioned with 250px offset from the left
+  // Define the sidebar width and desired margin
+  const sidebarWidth = 250;
+  const margin = 20;
 
-  // Create the button labeled "A" and position it relative to the canvas
+  // Create the canvas and position it with additional margin
+  const canvas = createCanvas(500, 400);
+  canvas.position(sidebarWidth + margin, 50); // Add margin to the canvas's left position
+
+  // Create the button labeled "A" and center it at the bottom of the canvas
   button = createButton('A');
   button.size(30, 30); // Small button
-  button.position(250 + width / 2 - button.width / 2, height - 50); // Center button on the canvas with sidebar offset
+  button.position(sidebarWidth + margin + width / 2 - button.width / 2, height + 50 - button.height); // Center button on the canvas
   button.mousePressed(createClone);
 }
 
@@ -22,7 +26,7 @@ function draw() {
   // Draw TV shape in the center of the canvas
   fill(50); // TV border color
   rectMode(CENTER);
-  rect(width / 2, height / 2, 150, 100, 10); // Centered on canvas without extra offset
+  rect(width / 2, height / 2, 150, 100, 10); // Centered on canvas
 
   // Draw TV screen with color based on button press state
   if (isPressed) {
@@ -30,11 +34,11 @@ function draw() {
   } else {
     fill(255, 0, 0); // Red when not pressed
   }
-  rect(width / 2, height / 2, 130, 80, 8); // Centered on canvas without offset
+  rect(width / 2, height / 2, 130, 80, 8); // Centered on canvas
 
   // Move the clone if it exists and is in motion
   if (cloneMoving && buttonClone) {
-    let targetX = 250 + width / 2 - buttonClone.width / 2;
+    let targetX = sidebarWidth + margin + width / 2 - buttonClone.width / 2;
     let targetY = height / 2 - buttonClone.height / 2;
 
     // Move the clone towards the center of the TV
@@ -60,8 +64,8 @@ function createClone() {
   }
 
   // Set the clone's initial position and start moving it
-  cloneX = 250 + width / 2 - buttonClone.width / 2;
-  cloneY = height - 50;
+  cloneX = 270 + width / 2 - buttonClone.width / 2;
+  cloneY = height + 50 - button.height;
   buttonClone.position(cloneX, cloneY);
   cloneMoving = true;
 }
