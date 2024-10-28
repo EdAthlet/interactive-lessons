@@ -6,11 +6,12 @@ let cloneX, cloneY;
 
 function setup() {
   // Create the canvas and shift it 250px to the right to make room for the sidebar
-  createCanvas(500, 400).position(250, 0); // Canvas positioned with 250px offset from the left
+  const canvas = createCanvas(500, 400);
+  canvas.position(250, 0); // Canvas positioned with 250px offset from the left
 
   // Create the button labeled "A" and position it relative to the canvas
   button = createButton('A');
-  button.size(50, 50); // Small button
+  button.size(30, 30); // Small button
   button.position(250 + width / 2 - button.width / 2, height - 50); // Center button on the canvas with sidebar offset
   button.mousePressed(createClone);
 }
@@ -18,10 +19,10 @@ function setup() {
 function draw() {
   background(220);
 
-  // Draw TV shape on the canvas
+  // Draw TV shape in the center of the canvas
   fill(50); // TV border color
   rectMode(CENTER);
-  rect(width / 2 + 250, height / 2, 150, 100, 10); // Centered on canvas with 250px offset
+  rect(width / 2, height / 2, 150, 100, 10); // Centered on canvas without extra offset
 
   // Draw TV screen with color based on button press state
   if (isPressed) {
@@ -29,7 +30,7 @@ function draw() {
   } else {
     fill(255, 0, 0); // Red when not pressed
   }
-  rect(width / 2 + 250, height / 2, 130, 80, 8); // Centered on canvas with offset
+  rect(width / 2, height / 2, 130, 80, 8); // Centered on canvas without offset
 
   // Move the clone if it exists and is in motion
   if (cloneMoving && buttonClone) {
@@ -55,7 +56,7 @@ function createClone() {
   // Create the clone button if it doesn't already exist
   if (!buttonClone) {
     buttonClone = createButton('A');
-    buttonClone.size(50, 50);
+    buttonClone.size(30, 30);
   }
 
   // Set the clone's initial position and start moving it
