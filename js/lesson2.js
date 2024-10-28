@@ -3,11 +3,10 @@ let buttonClone;
 let isPressed = false;
 let cloneMoving = false;
 let cloneX, cloneY;
+let sidebarWidth = 250; // Moved outside to make it global
+let margin = 20; // Optional: move margin as well if needed in other functions
 
 function setup() {
-  const sidebarWidth = 250;
-  const margin = 20;
-
   // Create the canvas and position it with margin
   const canvas = createCanvas(500, 400);
   canvas.position(sidebarWidth + margin, 50);
@@ -40,12 +39,12 @@ function draw() {
     let targetX = sidebarWidth + margin + width / 2 - buttonClone.width / 2;
     let targetY = 50 + height / 2 - buttonClone.height / 2;
 
-    // Smoothly move the clone towards the center of the TV
+    // Move the clone towards the center of the TV
     cloneX = lerp(cloneX, targetX, 0.1);
     cloneY = lerp(cloneY, targetY, 0.1);
     buttonClone.position(cloneX, cloneY);
 
-    // Stop moving if the clone is close enough to the target position
+    // Stop moving if close enough to the target
     if (dist(cloneX, cloneY, targetX, targetY) < 1) {
       cloneMoving = false;
     }
@@ -59,7 +58,6 @@ function createClone() {
   if (!buttonClone) {
     buttonClone = createButton('A');
     buttonClone.size(30, 30);
-    document.body.appendChild(buttonClone.elt); // Append it to the DOM if it’s created for the first time
   }
 
   // Set the clone's initial position at the bottom center of the canvas
