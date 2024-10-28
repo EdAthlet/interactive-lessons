@@ -23,17 +23,18 @@ function draw() {
   background(220);
 
   // Draw TV shape in the center of the canvas
-  fill(50); 
+  fill(0); 
   rectMode(CENTER);
-  rect(width / 2, height / 2, 150, 100, 10); 
+  rect(width / 2, height / 2, 150, 100, 5); 
 
   // Draw TV screen with color based on button press state
+  
   if (isPressed) {
-    fill(0, 255, 0); 
+    fill(0, 0, 255); // blue
   } else {
-    fill(255, 0, 0); 
+    fill(255, 0, 0); // red
   }
-  rect(width / 2, height / 2, 130, 80, 8);
+  rect(width / 2, height / 2, 140, 90, 5);
 
   // Move the clone if it exists and is in motion
   if (cloneMoving && buttonClone) {
