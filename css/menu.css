@@ -60,3 +60,8 @@
         margin-left: 100px; /* Adjust main content margin */
     }
 }
+
+/* Add this CSS to your stylesheet */
+#canvas {
+    margin-left: 200px; /* Adjust this value based on the width of your sidebar */
+}
