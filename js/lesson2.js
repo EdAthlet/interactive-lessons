@@ -22,27 +22,23 @@ function setup() {
 function draw() {
   background(220);
 
-  // Draw TV shape in the center of the canvas
-  fill(0); 
+  // Draw TV shape (outer border) in black
+  fill(0); // Black color for the border
   rectMode(CENTER);
-  rect(width / 2, height / 2, 150, 100, 5); 
+  rect(width / 2, height / 2, 150, 100, 10); // Outer black rectangle with rounded corners
 
   // Draw TV screen with color based on button press state
-  
   if (isPressed) {
-    fill(0, 0, 255); // blue
+    fill(0, 0, 255); // Blue color when pressed
   } else {
-    fill(255, 0, 0); // red
+    fill(255, 0, 0); // Red color when not pressed
   }
-  rect(width / 2, height / 2, 140, 90, 5);
+  rect(width / 2, height / 2, 140, 90, 8); // Inner colored rectangle, slightly smaller to create a thinner black border
 
   // Move the clone if it exists and is in motion
   if (cloneMoving && buttonClone) {
-    let targetX = 250 + 20 + width / 2 - buttonClone.width / 2;
+    let targetX = sidebarWidth + margin + width / 2 - buttonClone.width / 2;
     let targetY = 50 + height / 2 - buttonClone.height / 2;
-
-    // Log current position and target to debug
-    console.log(`Current: (${cloneX}, ${cloneY}), Target: (${targetX}, ${targetY})`);
 
     // Move the clone towards the center of the TV
     cloneX = lerp(cloneX, targetX, 0.05);
@@ -51,7 +47,6 @@ function draw() {
 
     // Stop moving if close enough to the target
     if (dist(cloneX, cloneY, targetX, targetY) < 1) {
-      console.log("Clone reached target");
       cloneMoving = false;
     }
   }
@@ -73,5 +68,4 @@ function createClone() {
 
   // Start moving the clone
   cloneMoving = true;
-  console.log("Clone created and moving up");
 }
