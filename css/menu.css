@@ -26,19 +26,21 @@
 
 #lesson-menu a {
     display: block;
-    color: rgb(24, 22, 22); /* White text color for contrast */
+    color: #121212; /* Darker color for better contrast */
     padding: 10px 15px;
     text-decoration: none;
     font-weight: bold;
 }
 
-#lesson-menu a:hover {
-    background-color: #45a049; /* Darker green for hover effect */
+#lesson-menu a:hover,
+#lesson-menu a:focus {
+    background-color: #45a049; /* Darker green for hover/focus effect */
+    outline: none; /* Remove default focus outline */
 }
 
 #lesson-menu a.active-link {
     background-color: yellow; /* Highlight active link in yellow */
-    color: black; /* Optional: Set text color for contrast */
+    color: black; /* Set text color for contrast */
 }
 
 /* Main content styling */
@@ -47,4 +49,14 @@
     padding: 20px;
     flex: 1;
     overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #lesson-menu {
+        width: 100px; /* Narrower sidebar on smaller screens */
+    }
+    #content {
+        margin-left: 100px; /* Adjust main content margin */
+    }
 }
