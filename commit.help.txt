@@ -1,23 +1,27 @@
 Stage all changes: To stage all modified and new files in your project, use:
 
-bash
-Copy code
-git add .
-This stages all changes in the current directory and its subdirectories.
 
+git add .
+
+This stages all changes in the current directory and its subdirectories.
+******************************************************************************************************
 Or, stage specific files only: If you only want to stage specific files, list them individually:
 
-bash
-Copy code
+
 git add file1.html file2.css file3.js
+******************************************************************************************************
+
 Commit the staged files: Once you've staged the files, commit them with a message:
 
-bash
-Copy code
+
 git commit -m "Your commit message describing the changes"
+
+******************************************************************************************************
+
 Push to your remote repository (if needed):
 
-bash
-Copy code
+
 git push origin main
+
 This process will commit all staged files in one commit, which you can then push to your remote repository.
+******************************************************************************************************
