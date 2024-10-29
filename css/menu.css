@@ -61,3 +61,15 @@
     }
 }
 
+#canvas-holder {
+    position: relative;
+    z-index: 1; /* Canvas layer */
+  }
+
+#svgButtonContainer {
+    position: absolute;
+    top: 50px; /* Adjust as needed to position it relative to the canvas */
+    left: calc(250px + 20px); /* Matches the sidebarWidth + margin */
+    z-index: 10; /* Higher z-index to ensure it appears above the canvas */
+  }
+  
